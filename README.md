@@ -4,7 +4,7 @@
 
 Diquis nació con la visión de empoderar a las personas en la gestión de sus finanzas personales, dándoles control absoluto, proyecciones inteligentes y una interfaz majestuosa. 
 
-Lo que estás viendo en este repositorio es la **primera versión (Legacy)** de nuestra arquitectura. Hoy en día, Diquis ha evolucionado hacia un ecosistema en la nube mucho más avanzado, pero hemos decidido abrir este código para que sea una **herramienta didáctica para la comunidad**: estudiantes, profesores y desarrolladores curiosos que deseen explorar cómo se construye una plataforma financiera full-stack con tecnologías modernas.
+Lo que estás viendo en este repositorio es la **primera versión (Legacy)** de nuestra arquitectura web. Hoy en día, Diquis ha evolucionado radicalmente hacia una **aplicación móvil 100% offline, centrada estrictamente en la privacidad** y el control total de los datos por parte del usuario. Sin embargo, hemos decidido abrir este código de nuestra primera iteración en la nube para que sea una **herramienta didáctica para la comunidad**: estudiantes, profesores y desarrolladores curiosos que deseen explorar cómo se construye una plataforma financiera full-stack con tecnologías web modernas.
 
 > 🌐 **Descubre la versión actual de Diquis:**
 > - Visita nuestra página web: [diquis.cachollolabs.com/es/vision-general](https://diquis.cachollolabs.com/es/vision-general)
