@@ -45,7 +45,7 @@ Este es un entorno interconectado. Por favor, sigue estos 3 pasos en orden estri
 1. Abre una terminal de **PowerShell en Windows** (Asegúrate de NO estar en WSL).
 2. Navega al directorio de la base de datos:
    ```powershell
-   cd "legacy\diquis-local-database"
+   cd "diquis-local-database"
    ```
 3. Ejecuta el script de inicialización automática:
    ```powershell
@@ -60,7 +60,7 @@ Este es un entorno interconectado. Por favor, sigue estos 3 pasos en orden estri
 1. Abre tu terminal de **WSL (Ubuntu/Linux)**.
 2. Navega al directorio del backend:
    ```bash
-   cd "legacy/diquis-local-backend"
+   cd "diquis-local-backend"
    ```
 3. **Copia el archivo de variables de entorno**: 
    ```bash
@@ -86,7 +86,7 @@ Este es un entorno interconectado. Por favor, sigue estos 3 pasos en orden estri
 1. Abre **otra ventana/pestaña** de terminal en **WSL**.
 2. Navega al directorio del frontend:
    ```bash
-   cd "legacy/diquis-local-frontend"
+   cd "diquis-local-frontend"
    ```
 3. **Copia el archivo de variables de entorno**: 
    ```bash

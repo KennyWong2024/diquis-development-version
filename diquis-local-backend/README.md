@@ -31,8 +31,7 @@ SECRET_KEY=diquis_local_dev_secret_key_2026_change_in_prod
 Abre tu terminal de Ubuntu/Debian en **WSL** y ejecuta:
 
 ```bash
-# 1. Navegar al directorio backend dentro de tu sistema de archivos montado
-cd "/mnt/c/Users/kenny/Documents/Projects/diquis-v1/legacy/diquis-local-backend/backend"
+cd "diquis-local-backend"
 
 # 2. Crear entorno virtual de Python
 python3 -m venv venv

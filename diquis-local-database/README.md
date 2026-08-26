@@ -15,8 +15,7 @@ Para evitar interfaces gráficas (como DBeaver) y problemas con variables de ent
 Abre **PowerShell** en Windows (asegúrate de **NO** estar en WSL) y ejecuta:
 
 ```powershell
-# Navegar a la carpeta de la base de datos
-cd "C:\Users\kenny\Documents\Projects\diquis-v1\legacy\diquis-local-database"
+cd "diquis-local-database"
 
 # Ejecutar el script automático
 .\init_db.ps1
