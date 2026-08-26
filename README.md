@@ -110,3 +110,13 @@ Abre tu navegador y ve a **[http://localhost:5173](http://localhost:5173)**.
 * **Crea un usuario**: Experimenta el flujo de autenticación seguro, registra transacciones, y observa cómo el frontend interactúa con la base de datos a través del API.
 
 > 💡 **Regla de Oro de Cookies Locales:** Asegúrate de abrir el frontend escribiendo textualmente **`localhost`** en tu barra de direcciones en lugar de `127.0.0.1`. Esto asegura que navegadores modernos (como Chrome) traten el origen correctamente y permitan enviar la cookie de sesión cruzada al backend.
+
+---
+
+## ⚖️ Licencia
+
+Este código fuente *Legacy* se distribuye bajo la licencia **GNU General Public License v3.0 (GPLv3)**. 
+
+Esto significa que eres libre de usar, estudiar, compartir y modificar el código de este repositorio para propósitos educativos, personales o didácticos. Sin embargo, si decides distribuir o publicar un software derivado de este código, estás obligado a liberar también ese código fuente bajo esta misma licencia (GPLv3).
+
+*Ten en cuenta que la aplicación comercial actual de Diquis opera bajo una arquitectura completamente distinta y propietaria.*
