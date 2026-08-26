@@ -4,6 +4,9 @@
 -- ADVERTENCIA: Esto destruirá el esquema 'app' y todos sus datos.
 -- =============================================================
 
+SET client_encoding TO 'UTF8';
+
+
 DROP SCHEMA IF EXISTS app CASCADE;
 
 DROP TYPE IF EXISTS account_type_enum CASCADE;
@@ -793,17 +796,17 @@ BEGIN
     END;
 
     IF _env = 'production' THEN
-        RAISE EXCEPTION 'ðŸ›‘ ALERTA CRÃTICA: Intentando ejecutar TRUNCATE en PRODUCCIÃ“N. OperaciÃ³n abortada.';
+        RAISE EXCEPTION '🛑 ALERTA CRÍTICA: Intentando ejecutar TRUNCATE en PRODUCCIÓN. Operación abortada.';
     END IF;
     
-    RAISE NOTICE 'Entorno seguro detectado (%). Vaciando tablas de categorÃ­as...', _env;
+    RAISE NOTICE 'Entorno seguro detectado (%). Vaciando tablas de categorías...', _env;
     TRUNCATE TABLE app.subcategories CASCADE;
     TRUNCATE TABLE app.categories CASCADE;
-    -- Se eliminÃ³ el TRUNCATE de tax_rates para proteger los datos existentes
+    -- Se eliminó el TRUNCATE de tax_rates para proteger los datos existentes
 END $$;
 
 -- -------------------------------------------------------------
--- 3. INSERCIÃ“N DE CATEGORÃAS (Nivel 1)
+-- 3. INSERCIÓN DE CATEGORÍAS (Nivel 1)
 -- -------------------------------------------------------------
 INSERT INTO app.categories (name, domain, icon, is_system, is_essential_default, sort_order) VALUES
 ('Supermercado',    'grocery',       'ShoppingCart',   TRUE, TRUE,  1),
@@ -812,29 +815,29 @@ INSERT INTO app.categories (name, domain, icon, is_system, is_essential_default,
 ('Hogar',           'home',          'Home',           TRUE, TRUE,  4),
 ('Salud',           'health',        'HeartPulse',     TRUE, TRUE,  5),
 ('Entretenimiento', 'entertainment', 'Star',           TRUE, FALSE, 6),
-('EducaciÃ³n',       'education',     'FileText',       TRUE, TRUE,  7),
+('Educación',       'education',     'FileText',       TRUE, TRUE,  7),
 ('Servicios',       'utilities',     'Zap',            TRUE, TRUE,  8),
 ('Ingresos',        'income',        'Briefcase',      TRUE, TRUE,  9),
 ('Ahorros',         'savings',       'PiggyBank',      TRUE, TRUE,  10),
 ('Otros',           'other',         'MoreHorizontal', TRUE, FALSE, 11);
 
 -- -------------------------------------------------------------
--- 4. INSERCIÃ“N DE SUBCATEGORÃAS (Nivel 2)
+-- 4. INSERCIÓN DE SUBCATEGORÍAS (Nivel 2)
 -- -------------------------------------------------------------
 INSERT INTO app.subcategories (category_id, name, is_system, is_essential_default, sort_order) VALUES
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Granos y secos',       TRUE, TRUE,  1),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Carnes Rojas',         TRUE, TRUE,  2),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Carnes Blancas',       TRUE, TRUE,  3),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Pescado',              TRUE, TRUE,  4),
-((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'LÃ¡cteos',              TRUE, TRUE,  5),
+((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Lácteos',              TRUE, TRUE,  5),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Frutas y verduras',    TRUE, TRUE,  6),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Enlatados',            TRUE, FALSE, 7),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Snacks y dulces',      TRUE, FALSE, 8),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Bebidas',              TRUE, FALSE, 9),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Limpieza hogar',       TRUE, TRUE,  10),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Higiene personal',     TRUE, TRUE,  11),
-((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'CafÃ© y TÃ©',            TRUE, FALSE, 12),
-((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'PanaderÃ­a',            TRUE, FALSE, 13),
+((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Café y Té',            TRUE, FALSE, 12),
+((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Panadería',            TRUE, FALSE, 13),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Comida preparada',     TRUE, FALSE, 14),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Salsas y condimentos', TRUE, FALSE, 15),
 ((SELECT id FROM app.categories WHERE name = 'Supermercado'), 'Embutidos',            TRUE, FALSE, 16),
@@ -851,24 +854,24 @@ INSERT INTO app.subcategories (category_id, name, is_system, is_essential_defaul
 ((SELECT id FROM app.categories WHERE name = 'Transporte'), 'Vuelo',        TRUE, FALSE, 8),
 
 ((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Restaurante',   TRUE, FALSE, 1),
-((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Comida rÃ¡pida', TRUE, FALSE, 2),
-((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'CafÃ©',          TRUE, FALSE, 3),
-((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'PanaderÃ­a',     TRUE, FALSE, 4),
+((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Comida rápida', TRUE, FALSE, 2),
+((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Café',          TRUE, FALSE, 3),
+((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Panadería',     TRUE, FALSE, 4),
 ((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Sodas',         TRUE, FALSE, 5),
 ((SELECT id FROM app.categories WHERE name = 'Comida Fuera'), 'Delivery',      TRUE, FALSE, 6),
 
 ((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Utensilios',        TRUE, FALSE, 1),
-((SELECT id FROM app.categories WHERE name = 'Hogar'), 'ElectrodomÃ©sticos', TRUE, FALSE, 2),
+((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Electrodomésticos', TRUE, FALSE, 2),
 ((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Muebles',           TRUE, FALSE, 3),
 ((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Reparaciones',      TRUE, TRUE,  4),
 ((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Alquiler',          TRUE, TRUE,  5),
 ((SELECT id FROM app.categories WHERE name = 'Hogar'), 'Hipoteca',          TRUE, TRUE,  6),
 
-((SELECT id FROM app.categories WHERE name = 'Salud'), 'Consulta mÃ©dica', TRUE, TRUE,  1),
+((SELECT id FROM app.categories WHERE name = 'Salud'), 'Consulta médica', TRUE, TRUE,  1),
 ((SELECT id FROM app.categories WHERE name = 'Salud'), 'Farmacia',        TRUE, TRUE,  2),
 ((SELECT id FROM app.categories WHERE name = 'Salud'), 'Laboratorios',    TRUE, FALSE, 3),
-((SELECT id FROM app.categories WHERE name = 'Salud'), 'Ã“ptica',          TRUE, FALSE, 4),
-((SELECT id FROM app.categories WHERE name = 'Salud'), 'Seguro mÃ©dico',   TRUE, TRUE,  5),
+((SELECT id FROM app.categories WHERE name = 'Salud'), 'Óptica',          TRUE, FALSE, 4),
+((SELECT id FROM app.categories WHERE name = 'Salud'), 'Seguro médico',   TRUE, TRUE,  5),
 
 ((SELECT id FROM app.categories WHERE name = 'Entretenimiento'), 'Streaming', TRUE, FALSE, 1),
 ((SELECT id FROM app.categories WHERE name = 'Entretenimiento'), 'Cine',      TRUE, FALSE, 2),
@@ -876,16 +879,16 @@ INSERT INTO app.subcategories (category_id, name, is_system, is_essential_defaul
 ((SELECT id FROM app.categories WHERE name = 'Entretenimiento'), 'Viajes',    TRUE, FALSE, 4),
 ((SELECT id FROM app.categories WHERE name = 'Entretenimiento'), 'Juegos',    TRUE, FALSE, 5),
 
-((SELECT id FROM app.categories WHERE name = 'EducaciÃ³n'), 'Cursos',      TRUE, TRUE,  1),
-((SELECT id FROM app.categories WHERE name = 'EducaciÃ³n'), 'Universidad', TRUE, TRUE,  2),
-((SELECT id FROM app.categories WHERE name = 'EducaciÃ³n'), 'Libros',      TRUE, FALSE, 3),
-((SELECT id FROM app.categories WHERE name = 'EducaciÃ³n'), 'Ãštiles',      TRUE, FALSE, 4),
+((SELECT id FROM app.categories WHERE name = 'Educación'), 'Cursos',      TRUE, TRUE,  1),
+((SELECT id FROM app.categories WHERE name = 'Educación'), 'Universidad', TRUE, TRUE,  2),
+((SELECT id FROM app.categories WHERE name = 'Educación'), 'Libros',      TRUE, FALSE, 3),
+((SELECT id FROM app.categories WHERE name = 'Educación'), 'Útiles',      TRUE, FALSE, 4),
 
 ((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Electricidad',    TRUE, TRUE,  1),
 ((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Agua',            TRUE, TRUE,  2),
 ((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Internet',        TRUE, TRUE,  3),
-((SELECT id FROM app.categories WHERE name = 'Servicios'), 'TelÃ©fono',        TRUE, TRUE,  4),
-((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Seguro vehÃ­culo', TRUE, FALSE, 5),
+((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Teléfono',        TRUE, TRUE,  4),
+((SELECT id FROM app.categories WHERE name = 'Servicios'), 'Seguro vehículo', TRUE, FALSE, 5),
 
 ((SELECT id FROM app.categories WHERE name = 'Ingresos'), 'Salario',          TRUE, TRUE,  1),
 ((SELECT id FROM app.categories WHERE name = 'Ingresos'), 'Freelance',        TRUE, FALSE, 2),
@@ -894,7 +897,7 @@ INSERT INTO app.subcategories (category_id, name, is_system, is_essential_defaul
 ((SELECT id FROM app.categories WHERE name = 'Ingresos'), 'Regalo / bono',    TRUE, FALSE, 5),
 
 ((SELECT id FROM app.categories WHERE name = 'Ahorros'), 'Fondo emergencia', TRUE, TRUE,  1),
-((SELECT id FROM app.categories WHERE name = 'Ahorros'), 'Meta especÃ­fica',  TRUE, FALSE, 2),
+((SELECT id FROM app.categories WHERE name = 'Ahorros'), 'Meta específica',  TRUE, FALSE, 2),
 
 ((SELECT id FROM app.categories WHERE name = 'Otros'), 'Otro gasto',   TRUE, FALSE, 1),
 ((SELECT id FROM app.categories WHERE name = 'Otros'), 'Otro ingreso', TRUE, FALSE, 2);

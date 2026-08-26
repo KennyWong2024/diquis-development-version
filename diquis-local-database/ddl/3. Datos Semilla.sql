@@ -20,7 +20,7 @@ BEGIN
     END;
 
     IF _env = 'production' THEN
-        RAISE EXCEPTION '🛑 ALERTA CRÍTICA: Intentando ejecutar TRUNCATE en PRODUCCIÓN. Operación abortada.';
+        RAISE EXCEPTION 'ALERTA CRÍTICA: Intentando ejecutar TRUNCATE en PRODUCCIÓN. Operación abortada.';
     END IF;
     
     RAISE NOTICE 'Entorno seguro detectado (%). Vaciando tablas de categorías...', _env;
