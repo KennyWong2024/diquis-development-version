@@ -1,0 +1,3 @@
+# Logs y archivos temporales
+*.log
+*.tmp

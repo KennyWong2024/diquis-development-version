@@ -1,0 +1,21 @@
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Variables de Entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Editores / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
