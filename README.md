@@ -1,10 +1,10 @@
-# 🏦 Diquis: Potenciando tus Finanzas Personales (Legacy Open Source)
+# 🏦 Diquis - Gestor Financiero (Legacy Open Source)
 
 ¡Te damos la bienvenida al código abierto de **Diquis**! 🚀
 
-Diquis nació con la visión de empoderar a las personas en la gestión de sus finanzas personales, dándoles control absoluto, proyecciones inteligentes y una interfaz majestuosa. 
+"Diquis - Gestor Financiero" nació con la visión de empoderar a las personas en la gestión de sus finanzas personales, dándoles control absoluto, proyecciones inteligentes y una interfaz detallada y amigable. 
 
-Lo que estás viendo en este repositorio es la **primera versión (Legacy)** de nuestra arquitectura web. Hoy en día, Diquis ha evolucionado radicalmente hacia una **aplicación móvil 100% offline, centrada estrictamente en la privacidad** y el control total de los datos por parte del usuario. Sin embargo, hemos decidido abrir este código de nuestra primera iteración en la nube para que sea una **herramienta didáctica para la comunidad**: estudiantes, profesores y desarrolladores curiosos que deseen explorar cómo se construye una plataforma financiera full-stack con tecnologías web modernas.
+Lo que estás viendo en este repositorio es la **primera versión (Legacy)** de nuestra arquitectura web. Hoy en día, Diquis ha evolucionado radicalmente hacia una **aplicación móvil 100% offline, centrada estrictamente en la privacidad** y el control total de los datos por parte del usuario. Sin embargo, hemos decidido abrir este código de nuestra primera iteración en la nube para que sea una **herramienta didáctica para la comunidad**: estudiantes, profesores y desarrolladores curiosos que deseen explorar cómo se construye una plataforma full stack, permitiendo explorar la comunicación entre una base de datos, backend hasta llegar al frontend.
 
 > 🌐 **Descubre la versión actual de Diquis:**
 > - Visita nuestra página web: [diquis.cachollolabs.com/es/vision-general](https://diquis.cachollolabs.com/es/vision-general)
@@ -36,7 +36,7 @@ Asegúrate de tener instalados los siguientes componentes en tu máquina:
 
 ---
 
-## 🚀 Guía Maestra de Despliegue (Paso a Paso)
+## 🚀 Guía de Despliegue (Paso a Paso)
 
 Este es un entorno interconectado. Por favor, sigue estos 3 pasos en orden estricto.
 
