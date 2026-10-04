@@ -2,23 +2,36 @@
 
 ¡Te damos la bienvenida al código abierto de **Diquis**! 🚀
 
-"Diquis - Gestor Financiero" nació con la visión de empoderar a las personas en la gestión de sus finanzas personales, dándoles control absoluto, proyecciones inteligentes y una interfaz detallada y amigable. 
+**Diquis - Gestor Financiero** es una aplicación de gestión de finanzas personales. Este repositorio contiene la **primera versión Legacy de Diquis**, desarrollada como una aplicación web full stack y posteriormente adaptada para ejecutarse completamente de forma local.
 
-Lo que estás viendo en este repositorio es la **primera versión (Legacy)** de nuestra arquitectura web. Hoy en día, Diquis ha evolucionado radicalmente hacia una **aplicación móvil 100% offline, centrada estrictamente en la privacidad** y el control total de los datos por parte del usuario. Sin embargo, hemos decidido abrir este código de nuestra primera iteración en la nube para que sea una **herramienta didáctica para la comunidad**: estudiantes, profesores y desarrolladores curiosos que deseen explorar cómo se construye una plataforma full stack, permitiendo explorar la comunicación entre una base de datos, backend hasta llegar al frontend.
+La versión actual de Diquis ha evolucionado hacia una **aplicación móvil 100% offline, centrada en la privacidad y en el control total de los datos por parte del usuario**.
+
+Hemos decidido abrir esta primera versión para convertirla en una **herramienta didáctica para estudiantes, profesores y desarrolladores curiosos**. El proyecto permite explorar cómo se construye una aplicación full stack y cómo se comunican sus principales componentes: **base de datos, backend y frontend**.
 
 > 🌐 **Descubre la versión actual de Diquis:**
-> - Visita nuestra página web: [diquis.cachollolabs.com/es/vision-general](https://diquis.cachollolabs.com/es/vision-general)
-> - Descarga nuestra app en Google Play: [Diquis Mobile](https://play.google.com/store/apps/details?id=com.diquis.mobile)
+>
+> * **Sitio web:** [diquis.cachollolabs.com](https://diquis.cachollolabs.com/es/vision-general)
+> * **Aplicación Android:** [Diquis Mobile en Google Play](https://play.google.com/store/apps/details?id=com.diquis.mobile)
+
+> **Nota:** Este repositorio corresponde a una versión Legacy con fines educativos. **No representa la arquitectura ni el código fuente de la aplicación móvil actual de Diquis.**
 
 ---
 
-## 🏗️ La Arquitectura de esta Versión
+## 🏗️ Arquitectura de esta Versión
 
-Este repositorio está estructurado en tres grandes bloques que han sido adaptados para ejecutarse de manera **100% local** y segura, sin dependencias de la nube:
+Esta versión implementa una arquitectura de **3 capas** compuesta por:
 
-1. **Base de Datos (`diquis-local-database`)**: PostgreSQL nativo con políticas de seguridad a nivel de fila (RLS) y triggers financieros.
-2. **Backend (`diquis-local-backend`)**: Construido en Python con FastAPI y SQLAlchemy. Gestiona la lógica de negocio y protege las sesiones usando cookies seguras (HttpOnly / Zero-Trust).
-3. **Frontend (`diquis-local-frontend`)**: Una interfaz vibrante y reactiva construida con Vue 3, Vite, Pinia y TailwindCSS.
+1. **Base de Datos (`diquis-local-database`)**
+   PostgreSQL con políticas de seguridad a nivel de fila (RLS), triggers financieros y datos semilla.
+
+2. **Backend (`diquis-local-backend`)**
+   Desarrollado con Python, FastAPI y SQLAlchemy. Gestiona la lógica de negocio, acceso a datos y autenticación mediante cookies de sesión `HttpOnly`.
+
+3. **Frontend (`diquis-local-frontend`)**
+   Interfaz web desarrollada con Vue 3, Vite, Pinia y TailwindCSS.
+
+El objetivo es que cada capa pueda estudiarse de forma independiente y, al mismo tiempo, observar cómo interactúan para formar una aplicación full stack completa.
+
 
 ---
 
